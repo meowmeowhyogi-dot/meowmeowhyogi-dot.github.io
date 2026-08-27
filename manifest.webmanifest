@@ -1,0 +1,19 @@
+{
+  "name": "金龙鱼响片训练｜第一节学习面板",
+  "short_name": "金龙鱼响片课",
+  "description": "记录第一节响片课程的学习进度、补充项目和笔记。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff9f2",
+  "theme_color": "#fff1ee",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
