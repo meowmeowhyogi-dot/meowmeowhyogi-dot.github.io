@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jinlongyu-clicker-v1';
+const CACHE_NAME = 'jinlongyu-clicker-v2';
 const OFFLINE_FILES = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', event => {
