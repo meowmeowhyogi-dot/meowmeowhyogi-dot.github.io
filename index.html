@@ -438,6 +438,8 @@
 
     .action-row .btn { width: 100%; }
 
+    .save-row { grid-template-columns: 1fr; }
+
     .delete-item {
       margin-left: auto;
       padding: 2px 4px;
@@ -597,12 +599,21 @@
       <p class="saved-hint" id="saveHint">勾选状态和笔记保存在当前浏览器中。</p>
     </section>
 
-    <div class="action-row">
-      <button class="btn secondary" id="exportBtn" type="button">备份进度</button>
-      <button class="btn secondary" id="importBtn" type="button">恢复进度</button>
-      <button class="btn secondary danger" id="resetBtn" type="button">清空本页</button>
-      <input id="importFile" type="file" accept="application/json,.json" hidden>
+    <div class="action-row save-row">
+      <button class="btn" id="saveBtn" type="button">✓ 保存到本手机</button>
     </div>
+    <p class="footer-note">平时勾选和笔记会自动保存，不会下载任何文件。</p>
+
+    <details class="backup-tools">
+      <summary>换手机或清理浏览器前：备份与恢复</summary>
+      <p class="saved-hint">JSON 是给网页恢复进度用的数据文件，不需要打开查看。</p>
+      <div class="action-row">
+        <button class="btn secondary" id="exportBtn" type="button">下载 JSON 备份</button>
+        <button class="btn secondary" id="importBtn" type="button">从备份恢复</button>
+        <button class="btn secondary danger" id="resetBtn" type="button">清空本页</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+    </details>
     <p class="footer-note">项目目标：逐步帮助金龙鱼配合必要的医疗检查。</p>
   </main>
 
@@ -727,6 +738,16 @@
         saveState();
         renderCustomItems();
         updateProgress();
+      });
+
+      document.getElementById('saveBtn').addEventListener('click', function () {
+        saveState();
+        var button = document.getElementById('saveBtn');
+        var originalText = button.textContent;
+        button.textContent = '✓ 已保存到本手机';
+        window.setTimeout(function () {
+          button.textContent = originalText;
+        }, 1600);
       });
 
       document.getElementById('resetBtn').addEventListener('click', function () {
